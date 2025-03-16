@@ -181,3 +181,11 @@ cython_debug/
 .idea/
 
 .vscode/
+.direnv/
+.devenv/
+.envrc.private
+result
+.pre-commit-config.yaml
+
+# nixago: ignore-linked-files
+/.vscode/extensions.json

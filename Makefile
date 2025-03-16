@@ -3,10 +3,10 @@
 check_dirs := scripts src #setup.py
 
 quality:
-	ruff check $(check_dirs)
+	poetry run ruff check $(check_dirs)
 
 style:
-	ruff --format $(check_dirs)
+	poetry run ruff --format $(check_dirs)
 
 test:
-	CUDA_VISIBLE_DEVICES= pytest tests/
+	CUDA_VISIBLE_DEVICES= poetry run pytest tests/

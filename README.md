@@ -69,8 +69,8 @@ We provide several variants for each of the components in the unlearning pipelin
 ```bash
 conda create -n unlearning python=3.11
 conda activate unlearning
-pip install .
-pip install --no-build-isolation flash-attn==2.6.3
+poetry install
+poetry run pip install --no-build-isolation flash-attn==2.6.3
 ```
 
 ### 💾 Data Setup
@@ -142,7 +142,7 @@ Adding a new component (trainer, evaluation metric, benchmark, model, or dataset
 Please feel free to raise a pull request for any new features after setting up the environment in development mode.
 
 ```bash
-pip install .[dev]
+poetry install --with dev
 ```
 
 ## 📚 Further Documentation
