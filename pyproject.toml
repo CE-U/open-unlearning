@@ -6,7 +6,7 @@ authors = ["Vineeth Dorna <vineethdornal@gmail.com>", "Anmol Reddy Mekala <m.anm
 license = "MIT"
 package-mode = false
 
-[tool.poetry.dependencies]
+[tool.poetry.group.main.dependencies]
 python = "^3.11"
 huggingface-hub = "0.29.1"
 transformers = "4.45.1"
@@ -29,6 +29,8 @@ flash-attn = { url = "https://github.com/Dao-AILab/flash-attention/releases/down
 pre-commit = "4.0.1"
 pytest = "^8.3.5"
 ruff = "^0.11.0"
+jupyter-collaboration = "^3.1.0"
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
