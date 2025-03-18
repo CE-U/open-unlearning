@@ -35,7 +35,21 @@
             ...
           }:
           {
-            ml-ops.devcontainer = {
+            ml-ops.devcontainer = devcontainer: {
+              environmentVariables = lib.mkIf (pkgs.stdenv.isLinux) {
+                # DeepSpeed needs this to compile with -march=native
+                NIX_ENFORCE_NO_NATIVE = "0";
+
+                # Required by DeepSpeed
+                LDFLAGS = "-L${lib.escapeShellArg pkgs.libaio}/lib";
+                # LDFLAGS = "-L${lib.escapeShellArg pkgs.libaio}/lib -L${lib.escapeShellArg devcontainer.config.cuda.home}/lib";
+              };
+              cuda.packages = [
+                # Required by DeepSpeed
+                devcontainer.config.cuda.cudaPackages.libcufile.lib
+                devcontainer.config.cuda.cudaPackages.libcurand.lib
+                devcontainer.config.cuda.cudaPackages.cuda_nvcc
+              ];
               devenvShellModule = {
 
                 processes.jupyter-lab-collaborative.exec = ''
@@ -45,6 +59,12 @@
                 packages = [
                   pkgs.nixpkgs-fmt
                   pkgs.nixfmt-rfc-style
+
+                  # DeepSpeed needs mpi4py, which needs OpenMPI or MPICH
+                  pkgs.mpi
+
+                  # DeepSpeed needs ninja
+                  pkgs.ninja
                 ];
                 languages = {
                   c.enable = true;
