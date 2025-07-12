@@ -1,4 +1,9 @@
 {
+  nixConfig.extra-substituters = [
+    "https://cache.nixos.org"
+    "https://devenv.cachix.org"
+    "https://nix-community.cachix.org"
+  ];
   inputs = {
     devenv-root = {
       url = "file+file:///dev/null";
