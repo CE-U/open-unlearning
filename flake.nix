@@ -10,6 +10,11 @@
     nix-ml-ops.url = "github:Atry/nix-ml-ops";
     nix-ml-ops.inputs.systems.follows = "systems";
     nix-ml-ops.inputs.devenv-root.follows = "devenv-root";
+    nix-ml-ops.inputs.flake-parts.follows = "flake-parts";
+
+    flake-parts.url = "github:Atry/flake-parts/key";
+    flake-parts.inputs.nixpkgs-lib.follows = "nix-ml-ops/nixpkgs";
+
   };
   outputs =
     inputs@{ nix-ml-ops, ... }:

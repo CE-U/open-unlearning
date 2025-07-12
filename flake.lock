@@ -254,6 +254,27 @@
       "inputs": {
         "nixpkgs-lib": [
           "nix-ml-ops",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744934499,
+        "owner": "Atry",
+        "repo": "flake-parts",
+        "rev": "a56e2cb97a98ef15073955d95a6de6d88134cf2e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Atry",
+        "ref": "key",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nix-ml-ops",
           "devenv",
           "nix",
           "nixpkgs"
@@ -269,25 +290,6 @@
       },
       "original": {
         "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_2": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1726183423,
-        "narHash": "sha256-b/CrKtw3+rPt4kIJWJ3m/uQpMY2BSn0AD1u+biJhwho=",
-        "owner": "Atry",
-        "repo": "flake-parts",
-        "rev": "f46c31233225751eae2522247e6e7188c7a2f42b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Atry",
-        "ref": "key",
         "repo": "flake-parts",
         "type": "github"
       }
@@ -630,7 +632,9 @@
         "devenv-root": [
           "devenv-root"
         ],
-        "flake-parts": "flake-parts_2",
+        "flake-parts": [
+          "flake-parts"
+        ],
         "mach-nix": "mach-nix",
         "mk-shell-bin": "mk-shell-bin",
         "nix-gl-host": "nix-gl-host",
@@ -719,7 +723,7 @@
           "devenv",
           "flake-compat"
         ],
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "libgit2": "libgit2",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-23-11": "nixpkgs-23-11",
@@ -933,21 +937,6 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "a62e6edd6d5e1fa0329b8653c801147986f8d446",
-        "type": "github"
-      }
-    },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1739062995,
-        "narHash": "sha256-mmFWnEny5HClHPnDWs45goJfdo/UXghdxr79uKvJ5fQ=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "ad729b690927c9b6a130aeb346768c796339e3f8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
@@ -1230,6 +1219,7 @@
     "root": {
       "inputs": {
         "devenv-root": "devenv-root",
+        "flake-parts": "flake-parts",
         "nix-ml-ops": "nix-ml-ops",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "systems": "systems_6"
