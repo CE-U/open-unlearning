@@ -39,3 +39,17 @@ lm-eval = "0.4.8"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pyright]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+reportUnknownArgumentType = false
+reportUnknownParameterType = false
+reportMissingParameterType = false
+# reportIncompatibleVariableOverride = false
+# reportIncompatibleMethodOverride = false
+# reportUnusedImport = false
+# reportAbstractUsage = false
