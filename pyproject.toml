@@ -32,6 +32,10 @@ ruff = "^0.11.0"
 jupyter-collaboration = "^3.1.0"
 ipykernel = "^6.29.5"
 
+
+[tool.poetry.group.lm-eval.dependencies]
+lm-eval = "0.4.8"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
