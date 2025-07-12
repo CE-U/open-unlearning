@@ -10,6 +10,15 @@ from trainer.unlearn.npo import NPO
 from trainer.unlearn.dpo import DPO
 from trainer.unlearn.simnpo import SimNPO
 from trainer.unlearn.rmu import RMU
+from trainer.unlearn.undial import UNDIAL
+from trainer.unlearn.ceu import CEU
+from trainer.unlearn.satimp import SatImp
+from trainer.unlearn.wga import WGA
+
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 TRAINER_REGISTRY: Dict[str, Any] = {}
 
@@ -42,7 +51,7 @@ def load_trainer(
     eval_dataset=None,
     tokenizer=None,
     data_collator=None,
-    evaluator=None,
+    evaluators=None,
     template_args=None,
 ):
     trainer_args = trainer_cfg.args
@@ -63,9 +72,12 @@ def load_trainer(
         tokenizer=tokenizer,
         data_collator=data_collator,
         args=trainer_args,
-        evaluator=evaluator,
+        evaluators=evaluators,
         template_args=template_args,
         **method_args,
+    )
+    logger.info(
+        f"{trainer_handler_name} Trainer loaded, output_dir: {trainer_args.output_dir}"
     )
     return trainer, trainer_args
 
@@ -81,3 +93,7 @@ _register_trainer(NPO)
 _register_trainer(DPO)
 _register_trainer(SimNPO)
 _register_trainer(RMU)
+_register_trainer(UNDIAL)
+_register_trainer(CEU)
+_register_trainer(SatImp)
+_register_trainer(WGA)
